@@ -76,7 +76,7 @@
 (keyword "kailh-hotswap")
 (keyword "gateron-hotswap")
 (keyword "outemu-hotswap")
-(def hotswap-type "gateron-hotswap")
+(def hotswap-type "kailh-hotswap")
 
 (keyword "heart-rest")
 (keyword "moon-rest")
@@ -2688,6 +2688,13 @@ need to adjust for difference for thumb-z only"
   (if adjustable-wrist-rest-holder-plate
     (write-scad model-wrist-rest-right-holes)
     (write-scad wrist-rest-right)
+  )
+)
+
+(spit "things/wrist-rest-left-holes.scad"
+  (if adjustable-wrist-rest-holder-plate
+    (write-scad (mirror [-1 0 0] model-wrist-rest-right-holes))
+    (write-scad (mirror [-1 0 0] wrist-rest-right))
   )
 )
 
